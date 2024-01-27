@@ -1,0 +1,22 @@
+Package: tuRtle
+Title: Parse and Export R Data with the Turtle Syntax for the Resource Description Framework. 
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Daniel", family = "Antal", 
+           email = "daniel.antal@dataobservatory.eu", 
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7513-6760")
+           )
+      )
+Description: The Resource Description Framework (RDF) is a general-purpose 
+   language for representing information in the Web. This package converts data
+   and metadata from R dataset objects to the Turtle syntax.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.0
+Imports: 
+    dataset
+Suggests: 
+    knitr,
+    remotes
