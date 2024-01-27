@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+\<\<\<\<\<\<\< HEAD
 [![lifecycle](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Project Status:
 WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
@@ -21,9 +22,6 @@ You can install the development version of tuRtle with
 
 ``` r
 remotes::install_github("dataobservatory-eu/tuRtle", build = FALSE)
-```
-
-``` r
 ```
 
 ## Example

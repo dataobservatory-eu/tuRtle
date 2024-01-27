@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # tuRtle
 
 <!-- badges: start -->
+<<<<<<< HEAD
 [![lifecycle](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Project Status: WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![dataobservatory](https://img.shields.io/badge/ecosystem-dataobservatory.eu-3EA135.svg)](https://dataobservatory.eu/)
@@ -29,10 +30,6 @@ You can install the development version of tuRtle with `remotes::install_github(
 
 ```{r installation, eval=FALSE}
 remotes::install_github("dataobservatory-eu/tuRtle", build = FALSE)
-```
-
-``` r
-
 ```
 
 ## Example
@@ -51,6 +48,7 @@ examplefile <- file.path(tempdir(), "ttl_dataset_write.ttl")
 ttl_write(tdf=testtdf, file_path = examplefile)
 readLines(examplefile)
 ```
+
 
 
 
