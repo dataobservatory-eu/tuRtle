@@ -19,10 +19,10 @@ knitr::opts_chunk$set(
 [![lifecycle](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Project Status: WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![dataobservatory](https://img.shields.io/badge/ecosystem-dataobservatory.eu-3EA135.svg)](https://dataobservatory.eu/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10576998.svg)](https://zenodo.org/record/6950435#.YukDAXZBzIU)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10576998.svg)](https://zenodo.org/records/10576998)
 <!-- badges: end -->
 
-The goal of tuRtle is to parse or export R data with the Turtle syntax for the Resource Description Framework (RDF).
+The goal of tuRtle is to parse or export R data with the Turtle syntax for the Resource Description Framework (RDF). This is a very early version that is being co-developed with the [dataset](https://dataset.dataobservatory.eu/) package.
 
 ## Installation
 

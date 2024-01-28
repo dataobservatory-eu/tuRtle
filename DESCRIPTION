@@ -12,7 +12,7 @@ Authors@R:
 Description: The Resource Description Framework (RDF) is a general-purpose 
    language for representing information in the Web. This package converts data
    and metadata from R dataset objects to the Turtle syntax.
-URL: https://dataobservatory-eu.github.io/tuRtle/
+URL: https://turtle.dataobservatory.eu/
 BugReports: https://github.com/dataobservatory-eu/tuRtle/issues
 License: GPL (>= 3)
 Encoding: UTF-8
