@@ -1,0 +1,127 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "identifier": "tuRtle",
+  "description": "The Resource Description Framework (RDF) is a general-purpose language for representing information in the Web. This package converts data and metadata from R dataset objects to the Turtle syntax.",
+  "name": "tuRtle: Parse and Export R Data with the Turtle Syntax for the Resource Description Framework. ",
+  "codeRepository": "https://github.com/dataobservatory-eu/tuRtle",
+  "issueTracker": "https://github.com/dataobservatory-eu/tuRtle/issues",
+  "license": "https://spdx.org/licenses/GPL-3.0",
+  "version": "0.1.0",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 4.3.2 (2023-10-31 ucrt)",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Daniel",
+      "familyName": "Antal",
+      "email": "daniel.antal@dataobservatory.eu",
+      "@id": "https://orcid.org/0000-0001-7513-6760"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Daniel",
+      "familyName": "Antal",
+      "email": "daniel.antal@dataobservatory.eu",
+      "@id": "https://orcid.org/0000-0001-7513-6760"
+    }
+  ],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "remotes",
+      "name": "remotes",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=remotes"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "testthat",
+      "name": "testthat",
+      "version": ">= 3.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
+    }
+  ],
+  "softwareRequirements": {
+    "1": {
+      "@type": "SoftwareApplication",
+      "identifier": "dataset",
+      "name": "dataset",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=dataset"
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "598.212KB",
+  "citation": [
+    {
+      "@type": "SoftwareSourceCode",
+      "datePublished": "2024",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Daniel",
+          "familyName": "Antal",
+          "email": "daniel.antal@dataobservatory.eu",
+          "@id": "https://orcid.org/0000-0001-7513-6760"
+        }
+      ],
+      "name": "tuRtle: Parse and Export R Data with the Turtle Syntax for the Resource Description Framework. ",
+      "url": "https://dataobservatory-eu.github.io/tuRtle/",
+      "description": "R package version 0.1.0"
+    },
+    {
+      "@type": "CreativeWork",
+      "datePublished": "2024",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Daniel",
+          "familyName": "Antal"
+        }
+      ],
+      "name": "The tuRtle R Package: Parse and Export R Data with the Turtle Syntax for the Resource Description Framework ",
+      "identifier": "10.5281/zenodo.10576998",
+      "url": "https://turtle.dataobservatory.eu/index.html",
+      "@id": "https://doi.org/10.5281/zenodo.10576998",
+      "sameAs": "https://doi.org/10.5281/zenodo.10576998"
+    }
+  ],
+  "relatedLink": "https://dataobservatory-eu.github.io/tuRtle/",
+  "readme": "https://github.com/dataobservatory-eu/tuRtle/blob/main/README.md",
+  "developmentStatus": ["https://lifecycle.r-lib.org/articles/stages.html#experimental", "https://www.repostatus.org/#wip"]
+}

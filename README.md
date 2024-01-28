@@ -1,19 +1,19 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tuRtle
+# tuRtle <a href='https://turtle.dataobservatory.eu/'><img src='man/figures/logo.png' align="right" /></a>
 
 <!-- badges: start -->
 
-\<\<\<\<\<\<\< HEAD
 [![lifecycle](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Project Status:
 WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![dataobservatory](https://img.shields.io/badge/ecosystem-dataobservatory.eu-3EA135.svg)](https://dataobservatory.eu/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10576998.svg)](https://zenodo.org/record/6950435#.YukDAXZBzIU)
 <!-- badges: end -->
 
-The goal of tuRtle is Parse and Export R Data with the Turtle Syntax for
-the Resource Description Framework.
+The goal of tuRtle is to parse or export R data with the Turtle syntax
+for the Resource Description Framework (RDF).
 
 ## Installation
 
@@ -73,3 +73,10 @@ readLines(examplefile)
 #> [31] "   eg-var   \"2\"^^<xs:decimal> ;"                                            
 #> [32] "   ."
 ```
+
+## Code of Conduct
+
+Please note that the tuRtle project is released with a [Contributor Code
+of
+Conduct](https://dataobservatory-eu.github.io/tuRtle/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.

@@ -4,7 +4,7 @@
 \alias{ttl_write}
 \title{Write a dataset into Turtle serialisation}
 \usage{
-ttl_write(tdf, ttl_namespace, file_path, overwrite)
+ttl_write(tdf, ttl_namespace, file_path, overwrite = TRUE)
 }
 \arguments{
 \item{tdf}{A dataset in exactly three columns.}
