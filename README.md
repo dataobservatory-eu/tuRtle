@@ -9,7 +9,7 @@
 [![Project Status:
 WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![dataobservatory](https://img.shields.io/badge/ecosystem-dataobservatory.eu-3EA135.svg)](https://dataobservatory.eu/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10576998.svg)](https://zenodo.org/records/10576998)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11582410.svg)](https://zenodo.org/records/10576998)
 <!-- badges: end -->
 
 The goal of tuRtle is to parse or export R data with the Turtle syntax
@@ -28,52 +28,56 @@ remotes::install_github("dataobservatory-eu/tuRtle", build = FALSE)
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Let us organise statements into a table of *s* subject, *p* predicate
+and *o* object:
+
+``` r
+tdf <- data.frame (s = c("eg:01","eg:02",  "eg:01", "eg:02", "eg:01" ),
+                   p = c("a", "a", "eg-var:", "eg-var:", "rdfs:label"),
+                   o = c("qb:Observation",
+                         "qb:Observation",
+                         "\"1\"^^<xs:decimal>",
+                         "\"2\"^^<xs:decimal>", 
+                         '"Example observation"')
+                   )
+
+knitr::kable(tdf)
+```
+
+| s     | p          | o                     |
+|:------|:-----------|:----------------------|
+| eg:01 | a          | <qb:Observation>      |
+| eg:02 | a          | <qb:Observation>      |
+| eg:01 | eg-var:    | “1”^^<xs:decimal>     |
+| eg:02 | eg-var:    | “2”^^<xs:decimal>     |
+| eg:01 | rdfs:label | “Example observation” |
+
+The Turtle serialisation is this, written into an `example_file`. The
+parameter `ttl_namespace = NULL` results in using the default prefixes
+of the dataset package.
 
 ``` r
 library(tuRtle)
-testtdf <- data.frame (s = c("eg:o1", "eg:01", "eg:02"),
-                       p = c("a", "eg-var:", "eg-var"),
-                       o = c("qb:Observation",
-                             "\"1\"^^<xs:decimal>",
-                             "\"2\"^^<xs:decimal>"))
+example_file<- file.path(tempdir(), "example_ttl.ttl")
+ttl_write(tdf=tdf, ttl_namespace = NULL, file_path = example_file)
 
-examplefile <- file.path(tempdir(), "ttl_dataset_write.ttl")
-ttl_write(tdf=testtdf, file_path = examplefile)
-#> Warning in utils::data(..., envir = e): data set 'dataset_namespace' not found
-readLines(examplefile)
-#>  [1] "@prefix  dbo:        <http://dbpedia.org/ontology/> ."                        
-#>  [2] "@prefix  dcterms:    <http://purl.org/dc/terms/> ."                           
-#>  [3] "@prefix  eg:         <http://example.org/ns#> ."                              
-#>  [4] "@prefix  ex-geo:     <http://example.org/geo#> ."                             
-#>  [5] "@prefix  foaf:       <http://xmlns.com/foaf/0.1/> ."                          
-#>  [6] "@prefix  owl:        <http://www.w3.org/2002/07/owl#> ."                      
-#>  [7] "@prefix  qb:         <http://purl.org/linked-data/cube#> ."                   
-#>  [8] "@prefix  rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ."         
-#>  [9] "@prefix  rdfs:       <http://www.w3.org/2000/01/rdf-schema#> ."               
-#> [10] "@prefix  sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> ."
-#> [11] "@prefix  sdmx-code:  <http://purl.org/linked-data/sdmx/2009/code#> ."         
-#> [12] "@prefix  sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> ."    
-#> [13] "@prefix  sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> ."    
-#> [14] "@prefix  sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> ."
-#> [15] "@prefix  sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> ."    
-#> [16] "@prefix  sdmx-metadata: <http://purl.org/linked-data/sdmx/2009/metadata#> ."  
-#> [17] "@prefix  sdmx-subject: <http://purl.org/linked-data/sdmx/2009/subject#> ."    
-#> [18] "@prefix  sdmx:       <http://purl.org/linked-data/sdmx#> ."                   
-#> [19] "@prefix  skos:       <http://www.w3.org/2004/02/skos/core#> ."                
-#> [20] "@prefix  xsd:        <http://www.w3.org/2001/XMLSchema#> ."                   
-#> [21] ""                                                                             
-#> [22] "# -- Observations -----------------------------------------"                  
-#> [23] ""                                                                             
-#> [24] "eg:o1 a qb:Observation ;"                                                     
-#> [25] "   a   qb:Observation ;"                                                      
-#> [26] "   ."                                                                         
-#> [27] "eg:01 a qb:Observation ;"                                                     
-#> [28] "   eg-var:   \"1\"^^<xs:decimal> ;"                                           
-#> [29] "   ."                                                                         
-#> [30] "eg:02 a qb:Observation ;"                                                     
-#> [31] "   eg-var   \"2\"^^<xs:decimal> ;"                                            
-#> [32] "   ."
+readLines(example_file)
+#>  [1] "@prefix  owl:        <http://www.w3.org/2002/07/owl#> ."             
+#>  [2] "@prefix  qb:         <http://purl.org/linked-data/cube#> ."          
+#>  [3] "@prefix  rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ."
+#>  [4] "@prefix  rdfs:       <http://www.w3.org/2000/01/rdf-schema#> ."      
+#>  [5] "@prefix  xsd:        <http://www.w3.org/2001/XMLSchema#> ."          
+#>  [6] ""                                                                    
+#>  [7] ""                                                                    
+#>  [8] "eg:01    a    qb:Observation;"                                       
+#>  [9] "   eg-var:   \"1\"^^<xs:decimal> ;"                                  
+#> [10] "   rdfs:label   \"Example observation\" ."                           
+#> [11] ""                                                                    
+#> [12] ""                                                                    
+#> [13] "eg:02    a    qb:Observation;"                                       
+#> [14] "   eg-var:   \"2\"^^<xs:decimal> ."                                  
+#> [15] ""                                                                    
+#> [16] ""
 ```
 
 ## Code of Conduct

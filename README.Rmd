@@ -4,7 +4,7 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, include = FALSE}
+```{r setupknitr, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![lifecycle](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Project Status: WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![dataobservatory](https://img.shields.io/badge/ecosystem-dataobservatory.eu-3EA135.svg)](https://dataobservatory.eu/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10576998.svg)](https://zenodo.org/records/10576998)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11582410.svg)](https://zenodo.org/records/10576998)
 <!-- badges: end -->
 
 The goal of tuRtle is to parse or export R data with the Turtle syntax for the Resource Description Framework (RDF). This is a very early version that is being co-developed with the [dataset](https://dataset.dataobservatory.eu/) package.
@@ -34,21 +34,30 @@ remotes::install_github("dataobservatory-eu/tuRtle", build = FALSE)
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Let us organise statements into a table of *s* subject, *p* predicate and *o* object:
 
-```{r example}
-library(tuRtle)
-testtdf <- data.frame (s = c("eg:o1", "eg:01", "eg:02"),
-                       p = c("a", "eg-var:", "eg-var"),
-                       o = c("qb:Observation",
-                             "\"1\"^^<xs:decimal>",
-                             "\"2\"^^<xs:decimal>"))
+```{r tdfdef, results='asis'}
+tdf <- data.frame (s = c("eg:01","eg:02",  "eg:01", "eg:02", "eg:01" ),
+                   p = c("a", "a", "eg-var:", "eg-var:", "rdfs:label"),
+                   o = c("qb:Observation",
+                         "qb:Observation",
+                         "\"1\"^^<xs:decimal>",
+                         "\"2\"^^<xs:decimal>", 
+                         '"Example observation"')
+                   )
 
-examplefile <- file.path(tempdir(), "ttl_dataset_write.ttl")
-ttl_write(tdf=testtdf, file_path = examplefile)
-readLines(examplefile)
+knitr::kable(tdf)
 ```
 
+The Turtle serialisation is this, written into an `example_file`. The parameter `ttl_namespace = NULL` results in using the default prefixes of the dataset package.
+
+```{r ttl_example}
+library(tuRtle)
+example_file<- file.path(tempdir(), "example_ttl.ttl")
+ttl_write(tdf=tdf, ttl_namespace = NULL, file_path = example_file)
+
+readLines(example_file)
+```
 
 ## Code of Conduct
 
