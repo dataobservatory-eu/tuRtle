@@ -1,7 +1,7 @@
 Package: tuRtle
 Title: Parse and Export R Data with the Turtle Syntax for the Resource Description Framework. 
-Date: 2024-06-11
-Version: 0.1.1
+Date: 2024-12-20
+Version: 0.1.1001
 Authors@R: 
     c(person(given = "Daniel", family = "Antal", 
            email = "daniel.antal@dataobservatory.eu", 
@@ -19,7 +19,7 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
 Imports: 
-    dataset (>= 0.3.3007),
+    dataset (>= 0.3.4),
     utils
 Suggests: 
     knitr,
