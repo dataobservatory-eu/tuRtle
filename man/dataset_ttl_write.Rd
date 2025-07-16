@@ -27,15 +27,19 @@ A text file with the prefix and the observation serialisations.
 Write a dataset into a Turtle serialisation.
 }
 \examples{
-testtdf <- data.frame (s = c("eg:o1", "eg:01", "eg:02"),
-                       p = c("a", "eg-var:", "eg-var"),
-                       o = c("qb:Observation",
-                             "\"1\"^^<xs:decimal>",
-                             "\"2\"^^<xs:decimal>"))
+testtdf <- data.frame(
+  s = c("eg:o1", "eg:01", "eg:02"),
+  p = c("a", "eg-var:", "eg-var"),
+  o = c(
+    "qb:Observation",
+    "\"1\"^^<xs:decimal>",
+    "\"2\"^^<xs:decimal>"
+  )
+)
 
 examplefile <- file.path(tempdir(), "ttl_dataset_write.ttl")
 
-dataset_ttl_write(tdf=testtdf, file_path = examplefile)
+dataset_ttl_write(tdf = testtdf, file_path = examplefile)
 
 readLines(examplefile)
 }

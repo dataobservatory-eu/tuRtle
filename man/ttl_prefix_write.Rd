@@ -19,9 +19,11 @@ Write the namespace prefixes into the header of a Turtle serialisation
 }
 \examples{
 ttl_namespace <- data.frame(
-  prefix = c("dbo:", "dcterms:"), 
-  uri = c("<http://dbpedia.org/ontology/>", 
-          "<http://purl.org/dc/terms/>")
+  prefix = c("dbo:", "dcterms:"),
+  uri = c(
+    "<http://dbpedia.org/ontology/>",
+    "<http://purl.org/dc/terms/>"
+  )
 )
 file_path <- tempfile()
 ttl_prefix_write(ttl_namespace, file_path)

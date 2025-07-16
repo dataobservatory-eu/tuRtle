@@ -15,6 +15,6 @@ getdata(dataset, package)
 Get an internal dataset from an R package.
 }
 \examples{
-getdata("dataset_namespace", package = "dataset") 
+getdata("dataset_namespace", package = "dataset")
 }
 \keyword{internal}
