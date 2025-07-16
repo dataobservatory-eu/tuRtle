@@ -37,24 +37,27 @@ remotes::install_github("dataobservatory-eu/tuRtle", build = FALSE)
 Let us organise statements into a table of *s* subject, *p* predicate and *o* object:
 
 ```{r tdfdef, results='asis'}
-tdf <- data.frame (s = c("eg:01","eg:02",  "eg:01", "eg:02", "eg:01" ),
-                   p = c("a", "a", "eg-var:", "eg-var:", "rdfs:label"),
-                   o = c("qb:Observation",
-                         "qb:Observation",
-                         "\"1\"^^<xs:decimal>",
-                         "\"2\"^^<xs:decimal>", 
-                         '"Example observation"')
-                   )
+tdf <- data.frame(
+  s = c("eg:01", "eg:02", "eg:01", "eg:02", "eg:01"),
+  p = c("a", "a", "eg-var:", "eg-var:", "rdfs:label"),
+  o = c(
+    "qb:Observation",
+    "qb:Observation",
+    "\"1\"^^<xs:decimal>",
+    "\"2\"^^<xs:decimal>",
+    '"Example observation"'
+  )
+)
 
 knitr::kable(tdf)
 ```
 
 The Turtle serialisation is this, written into an `example_file`. The parameter `ttl_namespace = NULL` results in using the default prefixes of the dataset package.
 
-```{r ttl_example}
+```{r ttl_example, eval=FALSE}
 library(tuRtle)
-example_file<- file.path(tempdir(), "example_ttl.ttl")
-ttl_write(tdf=tdf, ttl_namespace = NULL, file_path = example_file)
+example_file <- file.path(tempdir(), "example_ttl.ttl")
+ttl_write(tdf = tdf, ttl_namespace = NULL, file_path = example_file)
 
 readLines(example_file)
 ```
