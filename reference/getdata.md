@@ -21,6 +21,6 @@ getdata(dataset, package)
 ## Examples
 
 ``` r
-getdata("dataset_namespace", package = "dataset") 
+getdata("dataset_namespace", package = "dataset")
 #> Error in getdata("dataset_namespace", package = "dataset"): could not find function "getdata"
 ```

@@ -68,22 +68,26 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">tdf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span> <span class="op">(</span>s <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"eg:01"</span>,<span class="st">"eg:02"</span>,  <span class="st">"eg:01"</span>, <span class="st">"eg:02"</span>, <span class="st">"eg:01"</span> <span class="op">)</span>,</span></span>
-<span class="r-in"><span>                   p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"a"</span>, <span class="st">"eg-var:"</span>, <span class="st">"eg-var:"</span>, <span class="st">"rdfs:label"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                   o <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"qb:Observation"</span>,</span></span>
-<span class="r-in"><span>                         <span class="st">"qb:Observation"</span>,</span></span>
-<span class="r-in"><span>                         <span class="st">"\"1\"^^&lt;xs:decimal&gt;"</span>,</span></span>
-<span class="r-in"><span>                         <span class="st">"\"2\"^^&lt;xs:decimal&gt;"</span>, </span></span>
-<span class="r-in"><span>                         <span class="st">'"Example observation"'</span><span class="op">)</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">tdf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  s <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"eg:01"</span>, <span class="st">"eg:02"</span>, <span class="st">"eg:01"</span>, <span class="st">"eg:02"</span>, <span class="st">"eg:01"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"a"</span>, <span class="st">"eg-var:"</span>, <span class="st">"eg-var:"</span>, <span class="st">"rdfs:label"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  o <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"qb:Observation"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"qb:Observation"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"\"1\"^^&lt;xs:decimal&gt;"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"\"2\"^^&lt;xs:decimal&gt;"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">'"Example observation"'</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">examplefile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"ttl_dataset_write.ttl"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="dataset_ttl_write.html">dataset_ttl_write</a></span><span class="op">(</span>tdf<span class="op">=</span><span class="va">tdf</span>, file_path <span class="op">=</span> <span class="va">examplefile</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="dataset_ttl_write.html">dataset_ttl_write</a></span><span class="op">(</span>tdf <span class="op">=</span> <span class="va">tdf</span>, file_path <span class="op">=</span> <span class="va">examplefile</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>data set ‘dataset_namespace’ not found</span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in apply(ttl_namespace, 1, function(x) {    prefix &lt;- x[[1]]    n &lt;- max(12 - nchar(x[[1]]), 1)    separator &lt;- paste(rep(" ", n), collapse = "")    paste0("@prefix  ", prefix, separator, x[[2]], " .")}):</span> dim(X) must have a positive length</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">examplefile</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open file '/tmp/RtmpyQxRFs/ttl_dataset_write.ttl': No such file or directory</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open file '/tmp/RtmpUaCruJ/ttl_dataset_write.ttl': No such file or directory</span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in file(con, "r"):</span> cannot open the connection</span>
 </code></pre></div>
     </div>
