@@ -44,6 +44,6 @@ dataset_ttl_write(tdf = tdf, file_path = examplefile)
 #> Error in apply(ttl_namespace, 1, function(x) {    prefix <- x[[1]]    n <- max(12 - nchar(x[[1]]), 1)    separator <- paste(rep(" ", n), collapse = "")    paste0("@prefix  ", prefix, separator, x[[2]], " .")}): dim(X) must have a positive length
 
 readLines(examplefile)
-#> Warning: cannot open file '/tmp/RtmpRhXIRR/ttl_dataset_write.ttl': No such file or directory
+#> Warning: cannot open file '/tmp/RtmpkxLLMF/ttl_dataset_write.ttl': No such file or directory
 #> Error in file(con, "r"): cannot open the connection
 ```

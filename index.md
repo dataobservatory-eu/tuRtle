@@ -22,14 +22,17 @@ and *o* object:
 
 ``` r
 
-tdf <- data.frame (s = c("eg:01","eg:02",  "eg:01", "eg:02", "eg:01" ),
-                   p = c("a", "a", "eg-var:", "eg-var:", "rdfs:label"),
-                   o = c("qb:Observation",
-                         "qb:Observation",
-                         "\"1\"^^<xs:decimal>",
-                         "\"2\"^^<xs:decimal>", 
-                         '"Example observation"')
-                   )
+tdf <- data.frame(
+  s = c("eg:01", "eg:02", "eg:01", "eg:02", "eg:01"),
+  p = c("a", "a", "eg-var:", "eg-var:", "rdfs:label"),
+  o = c(
+    "qb:Observation",
+    "qb:Observation",
+    "\"1\"^^<xs:decimal>",
+    "\"2\"^^<xs:decimal>",
+    '"Example observation"'
+  )
+)
 
 knitr::kable(tdf)
 ```
@@ -49,26 +52,10 @@ of the dataset package.
 ``` r
 
 library(tuRtle)
-example_file<- file.path(tempdir(), "example_ttl.ttl")
-ttl_write(tdf=tdf, ttl_namespace = NULL, file_path = example_file)
+example_file <- file.path(tempdir(), "example_ttl.ttl")
+ttl_write(tdf = tdf, ttl_namespace = NULL, file_path = example_file)
 
 readLines(example_file)
-#>  [1] "@prefix  owl:        <http://www.w3.org/2002/07/owl#> ."             
-#>  [2] "@prefix  qb:         <http://purl.org/linked-data/cube#> ."          
-#>  [3] "@prefix  rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ."
-#>  [4] "@prefix  rdfs:       <http://www.w3.org/2000/01/rdf-schema#> ."      
-#>  [5] "@prefix  xsd:        <http://www.w3.org/2001/XMLSchema#> ."          
-#>  [6] ""                                                                    
-#>  [7] ""                                                                    
-#>  [8] "eg:01    a    qb:Observation;"                                       
-#>  [9] "   eg-var:   \"1\"^^<xs:decimal> ;"                                  
-#> [10] "   rdfs:label   \"Example observation\" ."                           
-#> [11] ""                                                                    
-#> [12] ""                                                                    
-#> [13] "eg:02    a    qb:Observation;"                                       
-#> [14] "   eg-var:   \"2\"^^<xs:decimal> ."                                  
-#> [15] ""                                                                    
-#> [16] ""
 ```
 
 ## Code of Conduct

@@ -14,14 +14,14 @@ Source:
 [`inst/CITATION`](https://github.com/dataobservatory-eu/tuRtle/blob/main/inst/CITATION)
 
 Antal D (2025). *tuRtle: Parse and Export R Data with the Turtle Syntax
-for the Resource Description Framework.*. R package version 0.1.1002,
+for the Resource Description Framework.*. R package version 0.2.0,
 <https://turtle.dataobservatory.eu/>.
 
     @Manual{,
       title = {tuRtle: Parse and Export R Data with the Turtle Syntax for the Resource Description Framework.},
       author = {Daniel Antal},
       year = {2025},
-      note = {R package version 0.1.1002},
+      note = {R package version 0.2.0},
       url = {https://turtle.dataobservatory.eu/},
     }
 

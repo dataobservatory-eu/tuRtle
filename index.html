@@ -33,7 +33,7 @@
 
     <a class="navbar-brand me-2" href="index.html">tuRtle</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,14 +78,17 @@
 </h2>
 <p>Let us organise statements into a table of <em>s</em> subject, <em>p</em> predicate and <em>o</em> object:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">tdf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span> <span class="op">(</span>s <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"eg:01"</span>,<span class="st">"eg:02"</span>,  <span class="st">"eg:01"</span>, <span class="st">"eg:02"</span>, <span class="st">"eg:01"</span> <span class="op">)</span>,</span>
-<span>                   p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"a"</span>, <span class="st">"eg-var:"</span>, <span class="st">"eg-var:"</span>, <span class="st">"rdfs:label"</span><span class="op">)</span>,</span>
-<span>                   o <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"qb:Observation"</span>,</span>
-<span>                         <span class="st">"qb:Observation"</span>,</span>
-<span>                         <span class="st">"\"1\"^^&lt;xs:decimal&gt;"</span>,</span>
-<span>                         <span class="st">"\"2\"^^&lt;xs:decimal&gt;"</span>, </span>
-<span>                         <span class="st">'"Example observation"'</span><span class="op">)</span></span>
-<span>                   <span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">tdf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
+<span>  s <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"eg:01"</span>, <span class="st">"eg:02"</span>, <span class="st">"eg:01"</span>, <span class="st">"eg:02"</span>, <span class="st">"eg:01"</span><span class="op">)</span>,</span>
+<span>  p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"a"</span>, <span class="st">"eg-var:"</span>, <span class="st">"eg-var:"</span>, <span class="st">"rdfs:label"</span><span class="op">)</span>,</span>
+<span>  o <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>    <span class="st">"qb:Observation"</span>,</span>
+<span>    <span class="st">"qb:Observation"</span>,</span>
+<span>    <span class="st">"\"1\"^^&lt;xs:decimal&gt;"</span>,</span>
+<span>    <span class="st">"\"2\"^^&lt;xs:decimal&gt;"</span>,</span>
+<span>    <span class="st">'"Example observation"'</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">tdf</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
@@ -108,13 +111,13 @@
 <tr>
 <td align="left">eg:01</td>
 <td align="left">eg-var:</td>
-<td align="left">“1”<sup></sup><decimal></decimal>
+<td align="left">“1”<decimal></decimal>
 </td>
 </tr>
 <tr>
 <td align="left">eg:02</td>
 <td align="left">eg-var:</td>
-<td align="left">“2”<sup></sup><decimal></decimal>
+<td align="left">“2”<decimal></decimal>
 </td>
 </tr>
 <tr>
@@ -127,26 +130,10 @@
 <p>The Turtle serialisation is this, written into an <code>example_file</code>. The parameter <code>ttl_namespace = NULL</code> results in using the default prefixes of the dataset package.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://turtle.dataobservatory.eu/" class="external-link">tuRtle</a></span><span class="op">)</span></span>
-<span><span class="va">example_file</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"example_ttl.ttl"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/ttl_write.html">ttl_write</a></span><span class="op">(</span>tdf<span class="op">=</span><span class="va">tdf</span>, ttl_namespace <span class="op">=</span> <span class="cn">NULL</span>, file_path <span class="op">=</span> <span class="va">example_file</span><span class="op">)</span></span>
+<span><span class="va">example_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"example_ttl.ttl"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/ttl_write.html">ttl_write</a></span><span class="op">(</span>tdf <span class="op">=</span> <span class="va">tdf</span>, ttl_namespace <span class="op">=</span> <span class="cn">NULL</span>, file_path <span class="op">=</span> <span class="va">example_file</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">example_file</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1] "@prefix  owl:        &lt;http://www.w3.org/2002/07/owl#&gt; ."             </span></span>
-<span><span class="co">#&gt;  [2] "@prefix  qb:         &lt;http://purl.org/linked-data/cube#&gt; ."          </span></span>
-<span><span class="co">#&gt;  [3] "@prefix  rdf:        &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; ."</span></span>
-<span><span class="co">#&gt;  [4] "@prefix  rdfs:       &lt;http://www.w3.org/2000/01/rdf-schema#&gt; ."      </span></span>
-<span><span class="co">#&gt;  [5] "@prefix  xsd:        &lt;http://www.w3.org/2001/XMLSchema#&gt; ."          </span></span>
-<span><span class="co">#&gt;  [6] ""                                                                    </span></span>
-<span><span class="co">#&gt;  [7] ""                                                                    </span></span>
-<span><span class="co">#&gt;  [8] "eg:01    a    qb:Observation;"                                       </span></span>
-<span><span class="co">#&gt;  [9] "   eg-var:   \"1\"^^&lt;xs:decimal&gt; ;"                                  </span></span>
-<span><span class="co">#&gt; [10] "   rdfs:label   \"Example observation\" ."                           </span></span>
-<span><span class="co">#&gt; [11] ""                                                                    </span></span>
-<span><span class="co">#&gt; [12] ""                                                                    </span></span>
-<span><span class="co">#&gt; [13] "eg:02    a    qb:Observation;"                                       </span></span>
-<span><span class="co">#&gt; [14] "   eg-var:   \"2\"^^&lt;xs:decimal&gt; ."                                  </span></span>
-<span><span class="co">#&gt; [15] ""                                                                    </span></span>
-<span><span class="co">#&gt; [16] ""</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">example_file</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
